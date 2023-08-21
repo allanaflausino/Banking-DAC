@@ -1,0 +1,24 @@
+<app-gerente-header></app-gerente-header>
+<div class="container mt-5">
+    <h1 class="text-center">Melhores Clientes</h1>
+    <table class="mt-5">
+        <thead>
+            <tr>
+                <th class="w-25">Nome</th>
+                <th>CPF</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>saldo</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="row-tbody" *ngFor="let cliente of clientes">
+                <td class="field-cpf">{{cliente.nome}}</td>
+                <td class="field-nome">{{cliente.cpf}}</td>
+                <td class="field-nome">{{cliente.cidade}}</td>
+                <td class="field-nome">{{cliente.estado}}</td>
+                <td class="field-salario">R${{cliente.saldo}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

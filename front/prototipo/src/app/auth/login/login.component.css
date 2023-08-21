@@ -1,0 +1,23 @@
+.image {
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+.container {
+    justify-content: center;
+    width: 350px;
+    height: 550px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 30px 0px #abd399;
+    margin-top: 30px;
+}
+
+legend {
+    margin-top: 15px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 35px;
+}

@@ -1,0 +1,90 @@
+{
+   "gerentes": [
+    {
+      "id": 1,
+      "nome": "Amanda Vieira",
+      "email": "amanda@gmail.com",
+      "cpf": "86011176003",
+      "telefone": "42154481"
+    },
+    {
+      "id": 2,
+      "nome": "Arthur Lopes",
+      "email": "artur@gmail.com",
+      "cpf": "26040951060",
+      "telefone": " 85084174"
+    },
+    {
+      "id": 3,
+      "nome": "Claudio Felipe Viana",
+      "email": "claudio@gmail.com",
+      "cpf": "69541705006",
+      "telefone": "68328645"
+    },
+    {
+      "id": 4,
+      "nome": "Maria Sophia Caldeira",
+      "email": "maria@gmail.com",
+      "cpf": "74103966017",
+      "telefone": "96252297"
+    }
+  ],
+  "clientes": [
+    {
+      "id": 1,
+      "nome": "João",
+      "cpf": 11111111111,
+      "email": "joao@joao.com",
+      "cep": 78507120,
+      "uf": "Minas Gerais",
+      "cidade": "Sabará",
+      "endereco": "Duque de Caxias",
+      "numero": 9437,
+      "telefone": 999979999,
+      "senha": "joao",
+      "perfil": "cliente"
+    },
+    {
+      "id": 2,
+      "nome": "José",
+      "cpf": 22222222222,
+      "email": "jose@jose.com",
+      "cep": 71014676,
+      "uf": "Paraíba",
+      "cidade": "João P.",
+      "endereco": "Castro Alves",
+      "numero": 6788,
+      "telefone": 999959999,
+      "senha": "jose",
+      "perfil": "cliente"
+    },
+    {
+      "id": 3,
+      "nome": "Joana",
+      "cpf": 33333333333,
+      "email": "joana@joana.com",
+      "cep": 63762156,
+      "uf": "Distrito Federal",
+      "cidade": "Brasília",
+      "endereco": "Goiás",
+      "numero": 1268,
+      "telefone": 999959999,
+      "senha": "joana",
+      "perfil": "cliente"
+    },
+    {
+      "id": 4,
+      "nome": "Joaquina",
+      "cpf": 44444444444,
+      "email": "joaquina@joaquina.com",
+      "cep": 83790180,
+      "uf": "Parana",
+      "cidade": "Curitiba",
+      "endereco": "Fernando de Noronha",
+      "numero": 1314,
+      "telefone": 99999999,
+      "senha": "joaquina",
+      "perfil": "cliente"
+    }
+]
+}
