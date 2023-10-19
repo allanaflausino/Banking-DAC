@@ -15,7 +15,7 @@ services:
       - "5435:5432"
     networks:
       - postgres
-    restart: unless-stopped
+    
 
   pgadmin:
     container_name: pgadmin

@@ -10,7 +10,7 @@ export class ListaComponent implements OnInit{
   constructor(private gerenteService: GerenteService){}
 
   ngOnInit(): void {
-    
+
   }
 
   aprovar($event) : void {
@@ -26,7 +26,9 @@ export class ListaComponent implements OnInit{
     {nome: 'Amanda Silva', cpf: '92332586024', salario: '3.500,00'},
     {nome: 'Jaqueline Ribeiro', cpf: '78467327065', salario: '4.200,00'},
     {nome: 'Joaquim Nascimento', cpf: '53591458031', salario: '3.100,00'},
-    {nome: 'Sandro Nogueira', cpf: '72365341020', salario: '2.500,00'}
+    {nome: 'Sandro Nogueira', cpf: '72365341020', salario: '2.500,00'},
+    {nome: 'Barnabe', cpf: '123', salario: '4.500,00'},
+    {nome: 'Ai zé da manga', cpf: '123', salario: '32.500,00'}
   ]
-  
+
 }

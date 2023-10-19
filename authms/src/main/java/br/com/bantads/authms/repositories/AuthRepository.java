@@ -1,15 +1,15 @@
 package br.com.bantads.authms.repositories;
 
-import java.util.UUID;
-
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
 import br.com.bantads.authms.models.Auth;
+import org.springframework.data.jpa.repository.Query;
 
-public interface AuthRepository extends JpaRepository<Auth, UUID> {
-	
-	public Auth findByEmail(String email);
+public interface AuthRepository extends JpaRepository<Auth, Long> {
+
+	Auth findByEmail(String email); 
+
+	@Query("Select a From Auth a Where a.email=:email and a.senha=:senha")
+	Auth findByEmailAndPass(String email, String senha); 
 		
 	
 	

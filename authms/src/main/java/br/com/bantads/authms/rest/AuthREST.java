@@ -2,8 +2,10 @@ package br.com.bantads.authms.rest;
 
 import java.util.List;
 
+import br.com.bantads.authms.services.AuthService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,7 +25,7 @@ import br.com.bantads.authms.repositories.AuthRepository;
 public class AuthREST {
 
 	@Autowired
-	private AuthRepository authRepository;
+	private AuthService authService;
 
 	@Autowired
 	private ModelMapper mapper;
@@ -31,15 +33,13 @@ public class AuthREST {
 	//@Autowired
 	//private PasswordEncoder passwordEncoder;
 
-	@PostMapping("/auth")
-	public ResponseEntity<AuthDTO> inserirAuth(@RequestBody AuthDTO auth) {
-		if (authRepository.findByEmail(auth.getEmail()) == null) {
-			authRepository.save(mapper.map(auth, Auth.class));
-			Auth newAuth = authRepository.findByEmail(auth.getEmail());
-			return ResponseEntity.status(201).body(mapper.map(newAuth, AuthDTO.class));
-		} else {
-			return ResponseEntity.status(400).build();
-		}
+	@PostMapping("/login")
+	public ResponseEntity<Auth> login(@RequestBody AuthDTO auth) {
+		if(!auth.getEmail().isEmpty() && !auth.getSenha().isEmpty())
+        {
+            return ResponseEntity.ok(authService.login(auth.getEmail(), auth.getSenha()));
+        }
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
 	}
 	
 	@PutMapping("/auth")
