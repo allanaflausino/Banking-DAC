@@ -9,12 +9,13 @@ var bodyParser = require("body-parser");
 var logger = require("morgan");
 const helmet = require("helmet");
 
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // proxys - usado para invocar os serviços, caso autenticado
-const usuariosServiceProxy = httpProxy("http://localhost:5000");
-const boisServiceProxy = httpProxy("http://localhost:5001");
+const clienteServiceProxy = httpProxy("http://localhost:5000");
 
 function verificaJwt(req, res, next) {
   const token = req.headers["x-access-token"];
@@ -33,7 +34,7 @@ function verificaJwt(req, res, next) {
   });
 }
 
-app.post('/login', urlencodeParser, (req, res, next) => {
+app.post('/login', urlencodedParser, (req, res, next) => {
   if (req.body.user === 'admin' && req.body.password === 'admin') {
     const id = 1;
     const token = jwt.sign({ id }, process.env.SECRET, {
@@ -49,12 +50,17 @@ app.post('/logout', function(req, res) {
 })
 
 app.get('/usuarios', verificaJwt, (req, res, next) => {
-  usuariosServiceProxy('/usuarios', req, res, next)
+  clienteServiceProxy(req, res, next)
 })
 
-app.get('/bois', verificaJwt, (req, res, next) => {
-  boisServiceProxy(req, res, next)
-})
+// configura aplicação
+app.use(logger("dev"));
+app.use(helmet());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 
+// cria o servidor na porta 3000
+var server = http.createServer(app);
+server.listen(3000);
 
-// https://www.youtube.com/watch?v=DIrhIB-unS4
