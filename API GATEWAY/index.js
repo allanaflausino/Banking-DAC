@@ -49,7 +49,7 @@ app.post('/logout', function(req, res) {
   res.json({auth: false, token: null});
 })
 
-app.get('/usuarios', verificaJwt, (req, res, next) => {
+app.get('/clientes', verificaJwt, (req, res, next) => {
   clienteServiceProxy(req, res, next)
 })
 
